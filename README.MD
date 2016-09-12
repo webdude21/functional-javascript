@@ -1,0 +1,1 @@
+Some code snippets that come up from reading the book "Functional JavaScript".
