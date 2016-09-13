@@ -1,13 +1,27 @@
-const numbers = [2, 3, -1, -6, 0, -108, 42, 10];
-
-function print(somethingToPrint) {
-    console.log(somethingToPrint);
-}
-
 function forEach(array, operation) {
     for (let i = 0, length = array.length; i < length; i++) {
         operation(array[i], i, array);
     }
+}
+
+function cat(array, ...args) {
+    if (!Array.isArray(array)) {
+        return [];
+    }
+
+    return array.concat(...args);
+}
+
+function filter(array, predicate) {
+    let resultArray = [];
+
+    for (let i = 0, length = array.length; i < length; i++) {
+        if (predicate(array[i], i, array) === true) {
+            return resultArray.push(array[i]);
+        }
+    }
+
+    return resultArray
 }
 
 function contains(array, element) {
@@ -16,6 +30,7 @@ function contains(array, element) {
 
 function map(array, operation) {
     let resultArray = [];
+    
     for (let i = 0, length = array.length; i < length; i++) {
         resultArray.push(operation(array[i], i, array));
     }
@@ -23,12 +38,4 @@ function map(array, operation) {
     return resultArray
 }
 
-function pow(x) {
-    return function (y) {
-        return Math.pow(y, x);
-    }
-};
-
-forEach(numbers, print);
-forEach(map(numbers, pow(10)), print);
-print(contains(numbers, -6));
+module.exports = { forEach, filter, contains, map, cat }

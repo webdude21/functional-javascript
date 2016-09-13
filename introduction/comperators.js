@@ -1,23 +1,7 @@
+const predicates = require('./predicates');
 const numbers = [2, 3, -1, -6, 0, -108, 42, 10];
-
 const ascendingOrder = function (a, b) { return a - b };
 const descendingOrder = function (a, b) { return b - a };
-
-function lt(x, y) {
-    return x < y;
-}
-
-function gt(x, y) {
-    return x > y;
-}
-
-function isEven(x) {
-    return x % 2 === 0;
-}
-
-function isOdd(x) {
-    return x % 2 !== 0;
-}
 
 function comperator(predicate) {
     return function (x, y) {
@@ -31,4 +15,4 @@ function comperator(predicate) {
     }
 }
 
-console.log(numbers.sort(comperator(isEven)));
+console.log(numbers.sort(comperator(predicates.isEven)));
