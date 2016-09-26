@@ -11,3 +11,5 @@ operations.print(numbers);
 
 const result = _.cat([1, 2, 3], [4, 5], [6, 7, 8]);
 operations.print(result);
+const reversed = _.reverse([1, 2, 3, 4, 5]);
+operations.print(reversed);

@@ -28,6 +28,26 @@ function contains(array, element) {
     return array.indexOf(element) > -1;
 }
 
+function isEmpty (array){
+    return array.length === 0;
+}
+
+function first (array){
+    return array[0];
+}
+
+function rest (array){
+    return array.slice(1);
+}
+
+function reverse (array){
+    if (isEmpty(array)){
+        return [];
+    }
+
+    return cat(reverse(rest(array)), [first(array)]);
+}
+
 function map(array, operation) {
     let resultArray = [];
     
@@ -38,4 +58,4 @@ function map(array, operation) {
     return resultArray
 }
 
-module.exports = { forEach, filter, contains, map, cat }
+module.exports = { forEach, filter, contains, map, cat, reverse }
