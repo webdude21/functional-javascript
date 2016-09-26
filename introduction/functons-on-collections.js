@@ -28,20 +28,20 @@ function contains(array, element) {
     return array.indexOf(element) > -1;
 }
 
-function isEmpty (array){
+function isEmpty(array) {
     return array.length === 0;
 }
 
-function first (array){
+function first(array) {
     return array[0];
 }
 
-function rest (array){
+function rest(array) {
     return array.slice(1);
 }
 
-function reverse (array){
-    if (isEmpty(array)){
+function reverse(array) {
+    if (isEmpty(array)) {
         return [];
     }
 
@@ -50,7 +50,7 @@ function reverse (array){
 
 function map(array, operation) {
     let resultArray = [];
-    
+
     for (let i = 0, length = array.length; i < length; i++) {
         resultArray.push(operation(array[i], i, array));
     }
