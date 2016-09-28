@@ -4,6 +4,14 @@ function forEach(array, operation) {
     }
 }
 
+function flatten (array) {
+    if (!array.length){
+        return [array];
+    }
+
+    return array.reduce((flat, toFlatten) => cat(flat, flatten(toFlatten)), []);
+}
+
 function cat(array, ...args) {
     if (!Array.isArray(array)) {
         return [];
@@ -58,4 +66,4 @@ function map(array, operation) {
     return resultArray
 }
 
-module.exports = { forEach, filter, contains, map, cat, reverse }
+module.exports = { forEach, filter, contains, map, cat, reverse, flatten}
